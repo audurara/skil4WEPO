@@ -10,7 +10,9 @@ window.Controls = (function() {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        27: 'touch',
+        0: 'click'
     };
 
     /**
@@ -24,7 +26,11 @@ window.Controls = (function() {
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            .on('mousedown', this._onMouseDown.bind(this))
+            .on('mouseup', this._onMouseUp.bind(this))
+            .on('touchstart', this._onTouchDown.bind(this))
+            .on('touchend', this._onTouchUp.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -48,6 +54,26 @@ window.Controls = (function() {
             return false;
         }
     };
+
+    Controls.prototype._onMouseDown = function() {
+        this.keys.click = true;
+
+    };
+
+    Controls.prototype._onMouseUp = function() {
+        this.keys.click = false;
+        
+    };
+    Controls.prototype._onTouchDown = function() {
+        this.keys.touch = true;
+
+    };
+
+    Controls.prototype._onTouchUp = function() {
+        this.keys.touch = false;
+        
+    };
+
 
     /**
      * Only answers true once until a key is pressed again.

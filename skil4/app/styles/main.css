@@ -4,7 +4,6 @@
 	left: 0;
 	width: 6em;
 	height: 6em;
-	/*background: hotpink;*/
 	background-size: 6em 6em;
 	background-repeat: no-repeat;
 	background-image: url("../images/birdy.png");
@@ -25,9 +24,105 @@
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
+.UpperPipe {
+    position: absolute;
+    top: 30em;
+    left: 100%;
+    width: 5em;
+    height: 30em;
+    border-radius: 1em;
+    transform-origin: top left;
+	background: white;
+    animation: slide 6s linear infinite;
+}
+.LowerPipe {
+    position: absolute;
+    top: -10em;
+    left: 100%;
+    width: 5em;
+    height: 30em;
+    border-radius: 1em;
+    transform-origin: top left;
+	background: white;
+    animation: slide 6s linear infinite;
+}
+@keyframes slide {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-1692px, 0, 0); }
+}
+
+.PlayerWing {
+    position: absolute;
+	height: 1em;
+    width: 2em;
+    left: 2em;
+    top: 2.5em;
+    border-radius: 10px;
+	transform-origin: top left;
+    background-color:lightpink;
+    animation: flap 0.4s infinite;
+}
+@keyframes flap {
+    from { transform: rotateX(0); }
+    to { transform: rotateX(180deg); }
+}
+
+.ground {
+  position: absolute;
+  z-index: 6;
+  bottom: 0;
+  width: 200%;
+  height: 10em;
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-image: url("../images/gras.png");
+  animation: groundMovement 0.4s linear infinite;
+}
+@keyframes groundMovement {
+  0% {
+    transform: translateZ(0) translate(0em, 0em); }
+  100% {
+    transform: translateZ(0) translate(-6em, 0em); }
+}
+
+.cloud1 {
+	position: absolute;
+	background-image: url("../images/cloud3.png");
+	background-repeat: no-repeat;
+	background-size: 10em 10em;
+	animation: cloudMovement 15s linear infinite;
+	width: 150em;
+	height: 15em;
+	margin-top: 100px;
+}
+.cloud2 {
+	position: absolute;
+	background-image: url("../images/cloud3.png");
+	background-repeat: no-repeat;
+	background-size: 10em 10em;
+	animation: cloudMovement 20s linear infinite;
+	width: 200em;
+	height: 15em;
+	margin-top: 30px;
+}
+.cloud3 {
+	position: absolute;
+	background-image: url("../images/cloud3.png");
+	background-repeat: no-repeat;
+	background-size: 10em 10em;
+	animation: cloudMovement 17s linear infinite;
+	width: 200em;
+	height: 15em;
+}
+@keyframes cloudMovement {
+	from { background-position: 100% 0; }
+	to { background-position: -25% 0; }
+}
+
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */
+
 .Scoreboard.is-visible {
 	-webkit-transform: none;
 }
@@ -64,5 +159,5 @@ height: 57.6em;
 margin-left: -51.2em;
 margin-top: -28.8em;
 overflow: hidden;
-background: lightslategrey;
+background: lightskyblue;
 }

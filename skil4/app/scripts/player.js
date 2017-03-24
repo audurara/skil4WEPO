@@ -2,6 +2,7 @@ window.Player = (function() {
 	'use strict';
 
 	var Controls = window.Controls;
+	var gameStarted = false;
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
@@ -23,20 +24,17 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
+
+		if(Controls.keys.space || Controls.keys.click || Controls.keys.touch){
+			gameStarted = true;
 			this.pos.y -= delta * SPEED;
+		}
+		else if(gameStarted === true){
+			this.pos.y += delta * 15;
 		}
 
 		this.checkCollisionWithBounds();
