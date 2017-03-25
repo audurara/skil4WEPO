@@ -25,6 +25,8 @@ window.Controls = (function() {
     var Controls = function() {
         this._didJump = false;
         this.keys = {};
+        var theme = document.getElementById('theme');
+        theme.volume = 0.1;
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this))
@@ -38,7 +40,7 @@ window.Controls = (function() {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
-            document.getElementById('Flap').play();
+            document.getElementById('flap').play();
 
         }
 
