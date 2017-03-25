@@ -28,6 +28,7 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		ROTATION = 0;
+		document.getElementById('theme').play();
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -43,7 +44,7 @@ window.Player = (function() {
 			ROTATION += delta * 50;
 			
 		}
-		
+
 		this.checkCollisionWithBounds();
 
 		// Update UI
@@ -55,6 +56,7 @@ window.Player = (function() {
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			document.getElementById('theme').pause();
 			document.getElementById('gameover').play();
 			return this.game.gameover();
 		}

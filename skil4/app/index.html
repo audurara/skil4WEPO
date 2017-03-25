@@ -21,7 +21,7 @@
 
         <div id="audio" >
             <audio autoplay loop id="theme">
-               <source src="audio/NEINEI.mp3" type="audio/mpeg"></source>
+               <source src="audio/happy.mp3" type="audio/mpeg"></source>
             </audio>
             <audio id="flap"> 
                 <source src="audio/flapping2.m4a" type="audio/mpeg"></source>
@@ -39,6 +39,7 @@
         <![endif]-->
 
         <div class="GameCanvas">
+            <div class="sun"></div>
             <div class="cloud1" id="clouds"></div>
             <div class="cloud2" id="clouds"></div>
             <div class="cloud3" id="clouds"></div>
@@ -58,7 +59,7 @@
             </div>
             <div class="ground"></div>
         </div>
-        <p>Press button m to mute the sound!</p>
+        <p id="mutetext">Press button m to mute the sound!</p>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

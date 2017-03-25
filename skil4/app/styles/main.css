@@ -118,9 +118,25 @@
 	from { background-position: 100% 0; }
 	to { background-position: -25% 0; }
 }
-#mute{
+
+.sun {
+	background-image: url("../images/sol.png");
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 15em 10em;
+	width: 200em;
+	height: 15em;
+}
+
+#mute {
 	width: 40px;
 	height: 40px;
+}
+
+#mutetext {
+	color: white;
+	font-family: calibri;
+	font-size: 17px;
 }
 
 /**
