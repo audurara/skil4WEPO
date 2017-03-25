@@ -13,6 +13,7 @@ window.Controls = (function() {
         40: 'down',
         27: 'touch',
         0: 'click',
+        77: 'mute'
     };
 
     /**
@@ -40,6 +41,26 @@ window.Controls = (function() {
             document.getElementById('Flap').play();
 
         }
+
+        else if(e.keyCode === 77){
+	
+            var theme = document.getElementById('theme');
+            var flap = document.getElementById('flap');
+            var gameover = document.getElementById('gameover');
+            console.log(gameover.muted);
+            if (theme.muted === false && flap.muted === false && gameover.muted === false) {
+                theme.muted = true;
+                flap.muted = true;
+                gameover.muted = true;
+            }
+            else {
+                theme.muted = false;
+                flap.muted = false;
+                gameover.muted = false;
+            }
+
+        }
+
 
         // Remember that this button is down.
         if (e.keyCode in KEYS) {
