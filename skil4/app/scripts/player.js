@@ -32,10 +32,12 @@ window.Player = (function() {
 		if(Controls.keys.space || Controls.keys.click || Controls.keys.touch){
 			gameStarted = true;
 			this.pos.y -= delta * SPEED;
+
 		}
 		else if(gameStarted === true){
 			this.pos.y += delta * 15;
 		}
+
 
 		this.checkCollisionWithBounds();
 
@@ -48,6 +50,7 @@ window.Player = (function() {
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			document.getElementById('gameover').play();
 			return this.game.gameover();
 		}
 	};

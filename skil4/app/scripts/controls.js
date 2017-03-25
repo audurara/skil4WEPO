@@ -12,7 +12,7 @@ window.Controls = (function() {
         39: 'right',
         40: 'down',
         27: 'touch',
-        0: 'click'
+        0: 'click',
     };
 
     /**
@@ -37,6 +37,8 @@ window.Controls = (function() {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
+            document.getElementById('Flap').play();
+
         }
 
         // Remember that this button is down.
@@ -74,7 +76,6 @@ window.Controls = (function() {
         
     };
 
-
     /**
      * Only answers true once until a key is pressed again.
      */
@@ -83,7 +84,7 @@ window.Controls = (function() {
         this._didJump = false;
         return answer;
     };
-    
+
     // Export singleton.
     return new Controls();
 })();

@@ -118,6 +118,10 @@
 	from { background-position: 100% 0; }
 	to { background-position: -25% 0; }
 }
+#mute{
+	width: 40px;
+	height: 40px;
+}
 
 /**
 * Reset transform to animate it into the correct spot on the screen.
