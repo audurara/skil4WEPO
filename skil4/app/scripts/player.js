@@ -11,13 +11,15 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
-	var ROTATION = 0;
+	var rotate = 0;
+	var score = 0;
 
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
-		ROTATION = 0;
+		rotate= 0;
+		this.score = score;
 	};
 
 	/**
@@ -27,7 +29,7 @@ window.Player = (function() {
 		gameStarted = false;
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
-		ROTATION = 0;
+		rotate = 0;
 		document.getElementById('theme').play();
 	};
 
@@ -36,19 +38,19 @@ window.Player = (function() {
 		if(Controls.keys.space || Controls.keys.click || Controls.keys.touch){
 			gameStarted = true;
 			this.pos.y -= delta * SPEED;
-			ROTATION = -20;
+			rotate = -20;
 
 		}
 		else if(gameStarted === true){
 			this.pos.y += delta * 15;
-			ROTATION += delta * 50;
+			rotate += delta * 50;
 			
 		}
 
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)rotateZ(' + ROTATION + 'deg)');
+		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)rotateZ(' + rotate + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {

@@ -49,7 +49,6 @@ window.Controls = (function() {
             var theme = document.getElementById('theme');
             var flap = document.getElementById('flap');
             var gameover = document.getElementById('gameover');
-            console.log(gameover.muted);
             if (theme.muted === false && flap.muted === false && gameover.muted === false) {
                 theme.muted = true;
                 flap.muted = true;

@@ -24,33 +24,31 @@
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
-.UpperPipe {
-    position: absolute;
-    top: 30em;
-    left: 100%;
-    width: 5em;
-    height: 30em;
-    border-radius: 1em;
-    transform-origin: top left;
-	background: white;
-    animation: slide 6s linear infinite;
-}
-.LowerPipe {
-    position: absolute;
-    top: -10em;
-    left: 100%;
-    width: 5em;
-    height: 30em;
-    border-radius: 1em;
-    transform-origin: top left;
-	background: white;
-    animation: slide 6s linear infinite;
-}
-@keyframes slide {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-1692px, 0, 0); }
+h2 {
+	font-size: 25px inherit;
+	color: hotpink;
 }
 
+.Pipe1 {
+    position: absolute;
+	top: 0;
+    left: 0;
+	width: 12em;
+    height: 92em;
+	background-size: 12em 92em;
+	background-image: url('../images/pipe4.png');
+	
+}
+.Pipe2 {
+    position: absolute;
+	top: 0;
+    left: 0;
+	width: 12em;
+    height: 92em;
+	background-size: 12em 92em;
+	background-image: url('../images/pipe4.png');
+
+}
 .PlayerWing {
     position: absolute;
 	height: 1em;
@@ -60,19 +58,19 @@
     border-radius: 10px;
 	transform-origin: top left;
     background-color:lightpink;
-    animation: flap 0.4s infinite;
+    animation: wings 0.5s infinite;
 }
-@keyframes flap {
+@keyframes wings {
     from { transform: rotateX(0); }
-    to { transform: rotateX(180deg); }
+    to { transform: rotateX(150deg); }
 }
 
 .ground {
   position: absolute;
-  z-index: 6;
   bottom: 0;
   width: 200%;
   height: 10em;
+  z-index: 5;
   background-repeat: repeat-x;
   background-size: contain;
   background-image: url("../images/gras.png");
@@ -82,7 +80,7 @@
   0% {
     transform: translateZ(0) translate(0em, 0em); }
   100% {
-    transform: translateZ(0) translate(-6em, 0em); }
+    transform: translateZ(0) translate(-5em, 0em); }
 }
 
 .cloud1 {

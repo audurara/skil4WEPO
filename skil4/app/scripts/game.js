@@ -11,9 +11,15 @@ window.Game = (function() {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.isPlaying = false;
+		
+		this.Pipe1 = new window.Pipe(this.el.find('.Pipe1'), this, 1);
+		this.Pipe2 = new window.Pipe(this.el.find('.Pipe2'), this, 2);
+
+		this.gameStarted = false;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+
 	};
 
 	/**
@@ -32,7 +38,9 @@ window.Game = (function() {
 		this.lastFrame = now;
 
 		// Update game entities.
-		this.player.onFrame(delta);
+		this.player.onFrame(delta, this.gameStarted);
+		this.Pipe1.onFrame(delta, this.gameStarted);
+		this.Pipe2.onFrame(delta, this.gameStarted);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -55,6 +63,9 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
+		this.Pipe1.reset();
+		this.Pipe2.reset();
+		this.gameStarted = false;
 	};
 
 	/**
@@ -73,6 +84,7 @@ window.Game = (function() {
 					scoreboardEl.removeClass('is-visible');
 					that.start();
 				});
+		document.getElementById('score').innerHTML = 'Your score is: ' + this.player.score;
 	};
 
 	/**
